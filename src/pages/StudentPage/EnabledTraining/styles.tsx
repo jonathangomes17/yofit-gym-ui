@@ -31,8 +31,8 @@ const Container = styled.div`
   }
 `
 
-const GymContainer: React.FC = (props) => {
+const TrainingContainer: React.FC = (props) => {
   return <Container {...props}>{props.children}</Container>
 }
 
-export default GymContainer
+export default TrainingContainer

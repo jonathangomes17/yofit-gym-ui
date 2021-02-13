@@ -22,9 +22,9 @@ const AvaliableTraining = () => {
 
   return (
     <GymContainer>
-        <Typhography bottom>Treinos Disponíveis</Typhography>
+        <Typhography bottom>Treinos disponíveis</Typhography>
 
-        {avaliableTrainings.length === 0
+        {avaliableTrainings?.length === 0
           ? <NoAvaliableTrainings />
           : <MasonryCard trainings={avaliableTrainings} />
         }

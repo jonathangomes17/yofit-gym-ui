@@ -3,6 +3,8 @@ interface IButton {
   disabled?: boolean
   loading?: number
   bigger?: boolean
+  outlined?: boolean
+  bottom?: boolean
   onClick?: any
   children: any
 }

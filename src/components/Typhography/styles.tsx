@@ -2,9 +2,8 @@ import React from 'react'
 import styled, {css} from 'styled-components'
 
 const Container = styled.span`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #424242;
-  text-transform: uppercase;
 
   ${(props: any) =>
     props?.bottom &&

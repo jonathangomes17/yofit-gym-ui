@@ -2,23 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { getEnabledTrainingByUserId, patchChangeStatusStudentTrainingProgress, postStudentTrainingProgress } from '../../../api';
 import NoEnabledTraining from '../../../components/MessageBoxPinned/NoEnabledTraining';
 import Typhography from '../../../components/Typhography'
-import GymContainer from './styles'
+import TrainingContainer from './styles'
+import IEnabledTraining, { IActivity } from './types';
 
-export interface IActivity {
-  activity_uuid: string;
-  activity_name: string;
-  activity_training_sections: number;
-  status: string;
-}
-
-export interface IEnabledTraining {
-  student_training_uuid: string;
-  training_uuid: string;
-  training_name: string;
-  activities: IActivity[]
-}
-
-const Training = () => {
+const EnabledTraining = () => {
   const [enabledTraining, setEnabledTraining] = useState<IEnabledTraining>();
   const [activity, setActivity] = useState<IActivity>();
   const [activityIndex, setActivityIndex] = useState(0);
@@ -29,7 +16,7 @@ const Training = () => {
       
       setEnabledTraining(training);
 
-      if (training.activities?.length > 0) {
+      if (training?.activities?.length > 0) {
         setActivity(training.activities[0]);
       }
     })();
@@ -78,8 +65,8 @@ const Training = () => {
   }
 
   return (
-    <GymContainer>
-        <Typhography bottom>Treino </Typhography>
+    <TrainingContainer>
+        <Typhography bottom>Treino atual</Typhography>
         
         {!enabledTraining
           ? <NoEnabledTraining />
@@ -108,24 +95,24 @@ const Training = () => {
               <hr className='divider' style={{marginTop: '1rem', marginBottom: '1rem'}} />
 
               <div className='actions'>
-                  <input type="radio" name="status" value="NOT_STARTED" checked={activity?.status == 'NOT_STARTED'} onChange={onStatusChanged} />
+                  <input type="radio" name="status" value="NOT_STARTED" checked={activity?.status === 'NOT_STARTED'} onChange={onStatusChanged} />
                   Não iniciei
 
-                  <input type="radio" name="status" value="IN_PROGRESS" checked={activity?.status == 'IN_PROGRESS'} onChange={onStatusChanged} />
+                  <input type="radio" name="status" value="IN_PROGRESS" checked={activity?.status === 'IN_PROGRESS'} onChange={onStatusChanged} />
                   Fazendo
 
-                  <input type="radio" name="status" value="COMPLETED" checked={activity?.status == 'COMPLETED'} onChange={onStatusChanged} />
+                  <input type="radio" name="status" value="COMPLETED" checked={activity?.status === 'COMPLETED'} onChange={onStatusChanged} />
                   Ok
 
-                  <input type="radio" name="status" value="SKIPPED" checked={activity?.status == 'SKIPPED'} onChange={onStatusChanged} />
+                  <input type="radio" name="status" value="SKIPPED" checked={activity?.status === 'SKIPPED'} onChange={onStatusChanged} />
                   Pulo
               </div>
 
               <hr className='divider' style={{marginTop: '1rem', marginBottom: '1rem'}} />
             </>
           )}
-    </GymContainer>
+    </TrainingContainer>
   )
 }
 
-export default Training
+export default EnabledTraining

@@ -2,10 +2,10 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import IButton from './types'
 
-const BaseButton = styled.button`
+const Container = styled.button`
   display: inline-flex;
   font-family: 'Raleway';
-  font-weight: 400;
+  font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -19,6 +19,9 @@ const BaseButton = styled.button`
   width: 100%;
   justify-content: center;
   align-items: center;
+  height: 44px;
+  font-size: 1rem;
+  padding: 5px;
 
   &[disabled] {
     color: #dadada;
@@ -27,19 +30,31 @@ const BaseButton = styled.button`
     opacity: 0.5;
   }
 
-  &:hover {
-    background-color: #a1a0bf;
-  }
-
   ${(props: IButton) =>
     props.primary &&
     css`
-      background: #3057E4!important;
-      border-color: #3057E4!important;
+      background: #3057E4;
+      border-color: #3057E4;
       color: #fff;
-      font-size: 1rem;
-      padding: 5px;
+
+      &:hover {
+        box-shadow: inset 0 0 0 0 #0e5cbc;
+        color: #fff;
+      }
     `}
+
+  ${(props: IButton) =>
+    props.outlined &&
+    css`
+      background: white;
+      border-color: grey;
+      color: black;
+
+      &:hover {
+        box-shadow: inset 0 0 0 0 #0e5cbc;
+        color: grey;
+      }
+    `}  
 
   ${(props: IButton) =>
     props.bigger &&
@@ -47,16 +62,16 @@ const BaseButton = styled.button`
       font-size: 1.5rem;
       padding: 1.25rem 2rem;
     `}
-`
 
-const Wrapper = styled(BaseButton)`
-  background: #3057E4;
-  border-color: #3057E4;
-  color: #fff;
+  ${(props: IButton) =>
+    props.bottom &&
+    css`
+      margin-bottom: 1rem;
+    `}  
 `
 
 const GymButton: React.FC<IButton> = (props) => {
-  return <Wrapper {...props}>{props.children}</Wrapper>
+  return <Container {...props}>{props.children}</Container>
 }
 
 export default GymButton

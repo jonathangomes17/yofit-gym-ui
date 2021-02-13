@@ -32,8 +32,22 @@ const Container = styled.div`
     `}    
 `
 
+const MessageBoxCloseButton = styled.span`
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  cursor: pointer;
+  transition: .2s;
+
+  &:hover {
+    color: lightgrey;
+  }
+`;
+
 const MessageBoxPinnedContainer: React.FC = (props) => {
   return <Container {...props}>{props.children}</Container>
 }
 
 export default MessageBoxPinnedContainer
+
+export { MessageBoxCloseButton }

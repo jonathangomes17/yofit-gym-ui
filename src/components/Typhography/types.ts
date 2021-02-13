@@ -1,7 +1,7 @@
 interface ITyphography {
-    bottom?: boolean
-    children: any
-  }
+  bottom?: boolean
+  children: any
+}
     
-  export default ITyphography
+export default ITyphography
   

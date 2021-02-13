@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import MessageBoxPinnedContainer from './styles'
+import MessageBoxPinnedContainer, { MessageBoxCloseButton } from './styles'
 import IMessageBoxPinned from './types'
 
 const MessageBoxPinned: React.FC<IMessageBoxPinned> = (props) => {
@@ -14,7 +14,7 @@ const MessageBoxPinned: React.FC<IMessageBoxPinned> = (props) => {
   return (
     <MessageBoxPinnedContainer {...props}>
       {props?.closed
-        ? <span style={{position: 'absolute', top: 5, right: 15}} onClick={handleClose}>X</span>
+        ? <MessageBoxCloseButton onClick={handleClose}>X</MessageBoxCloseButton>
         : null
       }
       
