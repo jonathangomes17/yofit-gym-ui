@@ -1,5 +1,5 @@
 import React from 'react'
-import { postStudentTraining } from '../../../../../api';
+import { postStudentTraining } from '../../../../../services/api';
 import Button from '../../../../../components/Button'
 
 export interface ITrainingItem {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import GymContainer from './styles'
 import MasonryCard from './MasonryCard'
 import Typhography from '../../../components/Typhography'
-import { getListTrainingsAvaliableByUserId } from '../../../api'
+import { getListTrainingsAvaliableByUserId } from '../../../services/api'
 import NoAvaliableTrainings from '../../../components/MessageBoxPinned/NoAvaliableTrainings'
 
 export interface ITrainingItem {

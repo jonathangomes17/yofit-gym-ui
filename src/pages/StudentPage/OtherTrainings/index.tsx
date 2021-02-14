@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getOtherTrainings, patchChangeStatusStudentTraining } from '../../../api';
+import { getOtherTrainings, patchChangeStatusStudentTraining } from '../../../services/api';
 import Button from '../../../components/Button'
 import NoOtherTrainings from '../../../components/MessageBoxPinned/NoOtherTrainings';
 import Typhography from '../../../components/Typhography'
