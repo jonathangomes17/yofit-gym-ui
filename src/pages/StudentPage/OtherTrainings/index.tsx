@@ -40,7 +40,7 @@ const OtherTrainings = () => {
 
   return (
     <OtherTrainingsContainer>
-      <Typhography bottom> Demais treinos </Typhography>
+      <Typhography> Demais treinos </Typhography>
 
       {!otherTrainings
         ? <NoOtherTrainings />

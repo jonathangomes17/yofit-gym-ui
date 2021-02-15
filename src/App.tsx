@@ -1,7 +1,7 @@
 import React from 'react'
 import GlobalStyles from './styles'
 import Routes from './routes'
-import {} from './services/interceptor';
+import './services/interceptor';
 
 function App() {
   return (

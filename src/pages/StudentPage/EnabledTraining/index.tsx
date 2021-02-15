@@ -4,6 +4,9 @@ import NoEnabledTraining from '../../../components/MessageBoxPinned/NoEnabledTra
 import Typhography from '../../../components/Typhography'
 import TrainingContainer from './styles'
 import IEnabledTraining, { IActivity } from './types';
+import Badge from 'components/Badge';
+import {ReactComponent as ArrowLeft} from '../../../assets/arrow-left.svg'
+import {ReactComponent as ArrowRight} from '../../../assets/arrow-right.svg'
 
 const EnabledTraining = () => {
   const [enabledTraining, setEnabledTraining] = useState<IEnabledTraining>();
@@ -79,18 +82,25 @@ const EnabledTraining = () => {
               <hr className='divider' style={{marginTop: '1rem', marginBottom: '1rem'}} />
 
               <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                <Typhography> Excercício </Typhography>
+                <Typhography bottom> Excercício </Typhography>
                 
                 <div>
-                  <span onClick={onPriorActivity} style={{cursor: 'pointer'}}>{'< voltar'}</span>
+                  <span onClick={onPriorActivity} style={{cursor: 'pointer'}}>
+                    <ArrowLeft width="30px" height="30px" />
+                  </span>
                   {' '}
-                  <span onClick={onNextActivity} style={{cursor: 'pointer'}}>{'próximo >'}</span>
+                  <span onClick={onNextActivity} style={{cursor: 'pointer'}}>
+                    <ArrowRight width="30px" height="30px" />
+                  </span>
                 </div>
               </div>
 
-              <span className='activity'>{activity?.activity_name}</span>
+              <div style={{display: 'flex'}}>
+                <Badge primary> {activity?.activity_training_sections || 0} Seções </Badge>
+                <Badge primary> {activity?.activity_training_sections || 0} Repetições </Badge>
+              </div>  
 
-              <span> {activity?.activity_training_sections || 0} Seções </span>
+              <span className='activity'>{activity?.activity_name}</span>
 
               <hr className='divider' style={{marginTop: '1rem', marginBottom: '1rem'}} />
 

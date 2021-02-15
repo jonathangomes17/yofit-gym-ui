@@ -5,19 +5,15 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  .training {
-      font-size: 36px;
-      margin-top: .5rem;
-      color: #585858;
-      text-transform: uppercase;
-  }
-
+  .training,
   .activity {
-    font-size: 36px;
+    font-size: 3vw;
     margin-top: .5rem;
     color: #585858;
+    line-height: 1.1;
+    letter-spacing: -.03em;
     word-break: break-all;
-}
+  }
 
   .divider {
       border-top: 1px solid #EEEEEE;

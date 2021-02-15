@@ -1,17 +1,14 @@
 import api from './interceptor';
 import { getSession, isLogged } from './session';
 
-// TODO: Não foi possível fazer o login page a tempo
-
-const uuidGuest = getSession();
-//const uuidAdmin = "d758b7f4-3e81-49b2-a334-3d8b3698384f";
+const token = getSession();
 
 export async function getListTrainingsAvaliableByUserId() {
     if (!isLogged()) {
         return;
     }
 
-    const response = await api.get(`student-training/${uuidGuest}/available-trainings`);
+    const response = await api.get(`student-training/${token}/available-trainings`);
     return !response.data ? [] : response.data;
 }
 
@@ -20,7 +17,7 @@ export async function getEnabledTrainingByUserId() {
         return;
     }
 
-    const response = await api.get(`student-training/${uuidGuest}/enabled-training`);
+    const response = await api.get(`student-training/${token}/enabled-training`);
 
     return !response.data ? [] : response.data;
 }
@@ -31,7 +28,7 @@ export async function postStudentTraining(trainingUuid: string) {
     }
 
     const response = await api.post('student-training', {
-       'user_uuid': uuidGuest,
+       'user_uuid': token,
        'training_uuid': trainingUuid,
        'status': 'ENABLED'
     });
@@ -69,7 +66,7 @@ export async function getOtherTrainings() {
         return;
     }
 
-    const response = await api.get(`student-training/${uuidGuest}/other-trainings`);
+    const response = await api.get(`student-training/${token}/other-trainings`);
     return !response.data ? [] : response.data;
 }
 
